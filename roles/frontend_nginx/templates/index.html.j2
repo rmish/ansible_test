@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Backend servers for monitoring</title>
+  </head>
+  <body>
+    {% for backend_host in groups['backend'] %}
+    <a href="/netdata/{{backend_host}}">{{backend_host}}</a></br>
+    {% endfor %}
+  </body>
+</html>

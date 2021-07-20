@@ -1,0 +1,21 @@
+---
+- name: Install nginx from epel repo
+  yum: name=nginx state=present
+
+- name: Give insecure permissions to an existing file
+  ansible.builtin.file:
+    path: /srv/nginx
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copy nginx config from template
+  template: src=default.conf.j2 dest=/etc/nginx/conf.d/default.conf
+  notify: restart nginx
+
+- name: Copy index file for backend servers list
+  template: src=index.html.j2 dest=/srv/nginx/index.html
+
+- name: Enable nginx service
+  service: name=nginx state=started enabled=yes

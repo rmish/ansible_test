@@ -1,0 +1,12 @@
+---
+# Disables firewalld service. If no such service - stay silent and do nothing
+- name: Disable Firewalld
+  service:
+       name: firewalld
+       state: stopped
+       enabled: False
+  ignore_errors: yes
+
+- name: Disable selinux
+  ansible.posix.selinux:
+    state: disabled

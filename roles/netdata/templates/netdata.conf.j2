@@ -1,0 +1,18 @@
+# NetData Configuration
+# managed by Ansible
+
+# The current full configuration can be retrieved from the running
+# server at the URL
+#
+#   http://localhost:19999/netdata.conf
+#
+# for example:
+
+[global]
+	run as user = netdata
+	web files owner = root
+	web files group = root
+	bind socket to IP = 0.0.0.0
+
+[web]
+        default port = {{ backend_port }}
