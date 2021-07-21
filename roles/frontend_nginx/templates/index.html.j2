@@ -6,7 +6,7 @@
   </head>
   <body>
     {% for backend_host in groups['backend'] %}
-    <a href="/netdata/{{backend_host}}">{{backend_host}}</a></br>
+    <a href="/netdata/{{backend_host}}/">{{backend_host}}</a></br>
     {% endfor %}
   </body>
 </html>
