@@ -1,20 +1,5 @@
 ---
-- name: Install netdata cluster with group of nginx reverse proxies
-  remote_user: root
-
-  - hosts: frontend
-    - name: frontend roles (common settinga and nginx)
-      roles: 
-        - role: frontend_common
-        - role: frontend_nginx
-          vars:
-            web_port: 80
-            backend_port: 19999
-      when: ansible_facts['os_family'] == "CentOS"
-
-  - hosts: backend
-    - name: backend roles (netdata)
-      roles:
-        - role: netdata
-          vars:
-            backend_port: 19999
+# Combine playbooks from two groups 
+# this file executes tasks to set both frontend and backend servers
+- import_playbook: frontend.yml
+- import_playbook: backend.yml

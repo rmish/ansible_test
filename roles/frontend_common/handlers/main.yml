@@ -1,0 +1,4 @@
+---
+- name: reboot selinux
+  reboot: 
+    when: selinux.reboot_required

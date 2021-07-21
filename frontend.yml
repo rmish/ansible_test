@@ -1,0 +1,9 @@
+---
+- hosts: frontend
+  remote_user: root
+  roles: 
+    - role: frontend_common
+    - role: frontend_nginx
+      vars:
+        web_port: 80
+        backend_port: 19999
