@@ -1,5 +1,6 @@
 [frontend]
-c8.local
+c8.local ansible_host=192.168.100.11
 
 [backend]
-u21.local
+u21.local ansible_host=192.168.100.10
+u21_2.local ansible_host=192.168.100.12

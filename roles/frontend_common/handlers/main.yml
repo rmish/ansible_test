@@ -1,4 +1,5 @@
 ---
+# Reboot after changing selinux settings. Timeout is chosen bigger than actually needed.
 - name: reboot selinux
-  reboot: 
-    when: selinux.reboot_required
+  ansible.builtin.reboot:
+     reboot_timeout: 300

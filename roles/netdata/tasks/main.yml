@@ -5,8 +5,7 @@
     state: latest
 
 - name: Copy netdata config from template
-  template: src=netdata.conf.j2 dest=/etc/netdata/netdata.conf
+  template: 
+    src: netdata.conf.j2
+    dest: /etc/netdata/netdata.conf
   notify: restart netdata
-
-- name: enable Netdata service
-  service: name=netdata state=started enabled=yes
