@@ -6,13 +6,13 @@
        state: stopped
        enabled: False
   ignore_errors: yes
-  when:  ansible_facts['os_family'] == 'CentOS'
+  when:  ansible_distribution == 'CentOS'
   
 - name: disable selinux
   ansible.posix.selinux:
     state: disabled
   notify: reboot selinux
-  when:  ansible_facts['os_family'] == 'CentOS'
+  when:  ansible_distribution == 'CentOS'
 
 # Fix for local static addresses. It`s better to do it in DNS.
 # non needed if all hosts from invenory regisered in DNS
