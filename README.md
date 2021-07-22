@@ -3,6 +3,8 @@ Playbook sets two group of hosts:
  * Frontend: CentOS 8.x with nginx as proxy for all nodes in backend (including table of contents of backend nodes).
  * Backend: Ubuntu 21.04 with netdata service.
  
+Playbook requires collection ansible.posix from ansible-galaxy (for changing selinux setings)
+
  Playbook has two global variables: web port for front and netdata port for all backend nodes. No restriction for group size. 
  Each frontend host can show information from all backend hosts and has "table of contents" for all monitored hosts.
  
