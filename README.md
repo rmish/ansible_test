@@ -1,12 +1,16 @@
 # Ansible playbook for several netdata nodes after a nginx proxy
 Playbook sets two group of hosts:
- * Frontend: CentOS 8.x with nginx as proxy for all nodes in backend (including table of contents of backend nodes).
+ * Frontend: CentOS 8.x with nginx as proxy for all nodes in backend (including table of contents for backend nodes).
  * Backend: Ubuntu 21.04 with netdata service.
  
 Playbook requires collection ansible.posix from ansible-galaxy (for changing selinux setings)
 
  Playbook has two global variables: web port for front and netdata port for all backend nodes. No restriction for group size. 
  Each frontend host can show information from all backend hosts and has "table of contents" for all monitored hosts.
+ 
+ URLs configured on each frontedn nodes:
+  * http://frontend_nodeYY:web_port/index.html - list of known backends for monitoring
+  * http://frontend_nodeYY:web_port/netdata/backend_nodeXX/ - acess to netdata web console on backend_nodeXX
  
  Using ssh connection for all nodes with root user. Tested with ssh keys authentication, 
  if using password-based auth needs cheking sshd config for allowing root to connect with that method.
